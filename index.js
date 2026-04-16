@@ -40,6 +40,7 @@ client.on('interactionCreate', async interaction => {
       'units':    () => cmdUnits(interaction),
       'calls':    () => cmdCalls(interaction),
       'help':     () => cmdHelp(interaction),
+      'setup':    () => cmdSetup(interaction),
     };
 
     if (handlers[interaction.commandName]) {
@@ -110,6 +111,7 @@ async function registerCommands() {
     { name:'units',    description:'View all active units' },
     { name:'calls',    description:'View all active calls' },
     { name:'help',     description:'Show all RedLineCAD bot commands' },
+    { name:'setup',    description:'Setup RedLineCAD channels and roles (Admin only)' },
   ];
 
   const rest = new REST({ version:'10' }).setToken(process.env.DISCORD_TOKEN);
